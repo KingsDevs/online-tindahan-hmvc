@@ -13,6 +13,11 @@ class Login extends MY_Controller
         $this->templates->show("Login Page",'login/login_page');
     }
 
+    public function register_page()
+    {
+        $this->templates->show("Register Page", 'login/register_page');
+    }
+
 
 
 }

@@ -1,3 +1,4 @@
 <div class="col-lg-8">
-    asd
+    <h1>OnlineTindahan</h1>
+    <p>Set your tindahan online.</p>
 </div>
