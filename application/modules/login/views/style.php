@@ -9,7 +9,7 @@
         padding: 1em;
         background-color: whitesmoke;
         border-radius: 1em;
-        height:min-content;
+        height:fit-content;
         border-color: black;
     }
     
