@@ -20,8 +20,10 @@
     
     .logo
     {
-        height: 3em;
-        width: 3em;
+        height: 6em;
+        width: 6em;
+        margin: 0px;
+        margin-inline: 50%;
         
     }
 
