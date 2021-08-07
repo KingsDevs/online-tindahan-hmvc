@@ -11,7 +11,14 @@
 </head>
 <body>
     
-    <?php echo $this->load->view($content) ?>
+<?php 
+        if($this->session->has_userdata('login_data'))
+        {
+            $this->load->view('templates/navbar');
+        } 
+?>
+
+    <?php echo $this->load->view($content); ?>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

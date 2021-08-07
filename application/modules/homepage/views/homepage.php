@@ -1,6 +1,10 @@
-<h1>Homepage</h1>
 
-<?php
-    print_r($this->session->userdata('login_data'));
-    echo $this->session->userdata('is_login');
-?>
+<?php if($this->session->flashdata('status') !== NULL) : ?>
+    <div class="alert alert-primary" role="alert">
+        <?php echo $this->session->flashdata('status');
+            $this->session->set_flashdata('status', NULL);
+        ?>
+    </div>
+<?php endif; ?>
+
+<h1>Homepage</h1>

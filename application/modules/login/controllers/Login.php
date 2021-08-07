@@ -7,8 +7,12 @@ class Login extends MY_Controller
     {
         parent::__construct();
         $this->load->model('login/LoginModel');
-        
-        
+
+        if($this->session->has_userdata('login_data'))
+        {
+            $this->session->set_flashdata('status', 'You are already logged in! ');
+            redirect(site_url('home'));
+        }
     }
 
     public function login_page()
@@ -47,7 +51,6 @@ class Login extends MY_Controller
                     'username' => $result->username,
                 );
 
-                //$this->session->set_userdata('is_login', '1');
                 $this->session->set_userdata('login_data', $login_data);
                 redirect(site_url('home'));
 
@@ -96,6 +99,7 @@ class Login extends MY_Controller
         }
     }
 
+  
 
 
 }
