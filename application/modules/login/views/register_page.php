@@ -8,23 +8,29 @@
 
             <br>
 
-            <?php echo $this->load->view('login/logo') ?>
+            <img class="logo" src="<?php echo base_url('/assets/images/OnlineTindahan.png'); ?>" alt="...">
             <div class="mb-3">
-                <form action="<?php echo base_url('register')?>" method="POST">
+                <form action="<?php echo site_url('register');?>" method="POST">
                     <label for="" class="form-label">First Name</label>
-                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name">
+                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name" value="<?php echo set_value('firstname'); ?>">
+                    <small class="input-error"><?php echo form_error('firstname'); ?></small>
 
                     <label for="" class="form-label">Last Name</label>
-                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name">
+                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name" value="<?php echo set_value('lastname'); ?>">
+                    <small class="input-error"><?php echo form_error('lastname'); ?></small>
 
                     <label for="" class="form-label">Username</label>
-                    <input type="text" name="username" id="username" class="form-control" placeholder="username">
+                    <input type="text" name="username" id="username" class="form-control" placeholder="username" value="<?php echo set_value('username'); ?>">
+                    <small class="input-error"><?php echo form_error('username'); ?></small>
 
                     <label for="" class="form-label">Password</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-                    
+                    <small class="input-error"><?php echo form_error('password'); ?></small>
+
                     <label for="" class="form-label">Confirm Password</label>
                     <input type="password" name="c_password" id="c_password" class="form-control" placeholder="Confirm Password">
+                    <small class="input-error"><?php echo form_error('c_password'); ?></small>
+
                     <br>
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-success">Register</button>
@@ -33,7 +39,7 @@
                 </form>
             </div>
 
-        <p class="login-text">Already have an account <a href="<?php echo base_url('login')?>">login here</a></p>
+        <p class="login-text">Already have an account <a href="<?php echo site_url('login')?>">login here</a></p>
     </div>
 </div>
 

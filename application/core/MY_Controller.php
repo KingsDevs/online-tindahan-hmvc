@@ -11,7 +11,8 @@ class MY_Controller extends MX_Controller
         parent::__construct();
 
         $this->load->module('templates');
-        $this->load-library(array('form_validation'));
+        $this->load->library(array('form_validation','session'));
+        $this->load->helper('form');
     }
 
 }

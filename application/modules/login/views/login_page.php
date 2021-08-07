@@ -8,7 +8,7 @@
 
             <br>
 
-            <?php echo $this->load->view('login/logo') ?>
+            <img class="logo" src="<?php echo base_url('/assets/images/OnlineTindahan.png') ?>" alt="...">
             <div class="mb-3">
                 <form action="" method="POST">
                     <label for="" class="form-label">Username</label>
@@ -25,7 +25,7 @@
                 </form>
             </div>
 
-            <p class="login-text">You don't have an account <a href="<?php echo base_url('register')?>">register here</a></p>
+            <p class="login-text">You don't have an account <a href="<?php echo site_url('register')?>">register here</a></p>
         </div>
     </div>
 </div>

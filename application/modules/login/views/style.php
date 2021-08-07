@@ -25,4 +25,9 @@
         
     }
 
+    .input-error
+    {
+        color:red;
+    }
+
 </style>

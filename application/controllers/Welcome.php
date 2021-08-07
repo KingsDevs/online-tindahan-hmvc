@@ -20,6 +20,6 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		redirect(base_url('login'));
+		redirect(site_url('login'));
 	}
 }
