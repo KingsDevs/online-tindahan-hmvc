@@ -10,7 +10,7 @@
 
             <?php echo $this->load->view('login/logo') ?>
             <div class="mb-3">
-                <form action="" method="POST">
+                <form action="<?php echo base_url('register')?>" method="POST">
                     <label for="" class="form-label">First Name</label>
                     <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name">
 

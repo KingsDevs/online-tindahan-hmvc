@@ -60,3 +60,4 @@ $route['login']['GET'] = 'login/login_page';
 $route['login']['POST'] = '';
 
 $route['register']['GET'] = 'login/register_page';
+$route['register']['POST'] = 'login/register';
