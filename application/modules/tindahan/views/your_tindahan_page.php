@@ -1,5 +1,12 @@
 <div class="container">
-    >
+    <?php if($this->session->flashdata('status') !== NULL) : ?>
+        <div class="alert alert-primary" role="alert">
+            <?php echo $this->session->flashdata('status');
+                $this->session->set_flashdata('status', NULL);
+            ?>
+        </div>
+    <?php endif; ?>
+    
     <div class="row">
         <div class="col">
             <div class="card text-center">
@@ -28,3 +35,4 @@
     </div>
     
 </div>
+
