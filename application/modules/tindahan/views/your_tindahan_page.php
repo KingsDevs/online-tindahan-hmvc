@@ -21,7 +21,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <a href="#" class="btn btn-primary float-end">Add Tindahan</a>
+                    <a href="<?php echo site_url('your-tindahan/add-tindahan');?>" class="btn btn-primary float-end">Add Tindahan</a>
                 </div>
             </div>
         </div>

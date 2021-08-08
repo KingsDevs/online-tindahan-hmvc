@@ -13,6 +13,15 @@ class Tindahan extends MY_Controller
     {
         $this->templates->show("Your Tindahan Page",'tindahan/your_tindahan_page');
     }
+
+    public function add_tindahan_page()
+    {
+        $this->templates->show("Add Tindahan", 'tindahan/add_tindahan');
+    }
+    public function add_tindahan()
+    {
+        
+    }
 }
 
 ?>
