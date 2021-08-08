@@ -11,8 +11,11 @@ class Tindahan extends MY_Controller
 
     public function your_tindahan_page()
     {
+        
         $result = $this->TindahanModel->get_tindahan($this->session->userdata('login_data')['username']);
         $this->session->set_userdata('tindahan_data', $result);
+        
+        
         $this->templates->show("Your Tindahan Page",'tindahan/your_tindahan_page');
     }
 
@@ -36,13 +39,15 @@ class Tindahan extends MY_Controller
                 'owner' => $this->session->userdata('login_data')['username'],
                 'title' => $this->input->post('title'),
                 'description' => $this->input->post('description'),
-                'image_name' => 'no_image.jpg'
+                'image_name' => 'no-image.jpg'
             );
 
             $result = $this->TindahanModel->insert_tindahan($data);
             if($result)
             {
                 $this->session->set_flashdata('status', "Added Tindahan Sucessfully!");
+                $result = $this->TindahanModel->get_tindahan($this->session->userdata('login_data')['username']);
+                $this->session->set_userdata('tindahan_data', $result);
                 redirect(site_url('your-tindahan'));
             }
             else

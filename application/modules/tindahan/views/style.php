@@ -1,7 +1,10 @@
 <style>
-    .input-error
+    .td-img
     {
-        color:red;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
     }
 
 </style>
