@@ -31,5 +31,14 @@
     {
         color:red;
     }
+    .block-title
+    {
+        color:white;
+        margin-top: 9em;
+    }
+    .subheading
+    {
+        font-size: 1.2em;
+    }
 
 </style>
