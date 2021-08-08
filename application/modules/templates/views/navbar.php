@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
+  <div class="container-fluid">
     <a class="navbar-brand" href="#">Online Tindahan</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,7 @@
           <a class="nav-link active" aria-current="page" href="<?php echo site_url('home')?>">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Your Tindahan</a>
+          <a class="nav-link" href="<?php echo site_url('your-tindahan') ?>">Your Tindahan</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Cart</a>

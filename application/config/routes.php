@@ -64,3 +64,6 @@ $route['register']['GET'] = 'login/register_page';
 $route['register']['POST'] = 'login/register';
 
 $route['home']['GET'] = 'homepage/home_page';
+
+$route['your-tindahan']['GET'] = 'tindahan/your_tindahan_page';
+$route['your-tindahan/add-tindahan']['GET'] = 'tindahan/add_tindahan_page';
