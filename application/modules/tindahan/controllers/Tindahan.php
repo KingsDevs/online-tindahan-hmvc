@@ -12,10 +12,12 @@ class Tindahan extends MY_Controller
     public function your_tindahan_page()
     {
         
-        $result = $this->TindahanModel->get_tindahan($this->session->userdata('login_data')['username']);
-        $this->session->set_userdata('tindahan_data', $result);
-        
-        
+        if($this->session->has_userdata('tindahan_data'))
+        {
+            $result = $this->TindahanModel->get_tindahan($this->session->userdata('login_data')['user_id']);
+            $this->session->set_userdata('tindahan_data', $result);
+        }
+
         $this->templates->show("Your Tindahan Page",'tindahan/your_tindahan_page');
     }
 
@@ -26,7 +28,7 @@ class Tindahan extends MY_Controller
     }
     public function add_tindahan()
     {
-        $this->form_validation->set_rules('title', 'Title', 'trim|required|alpha_numeric_spaces|is_unique[tindahans.title]');
+        $this->form_validation->set_rules('title', 'Title', 'trim|required|alpha_numeric_spaces');
         $this->form_validation->set_rules('description', 'Description', 'trim|required');
         
         if ($this->form_validation->run() == FALSE)
@@ -36,7 +38,7 @@ class Tindahan extends MY_Controller
         else
         {
             $data = array(
-                'owner' => $this->session->userdata('login_data')['username'],
+                'user_id' => $this->session->userdata('login_data')['user_id'],
                 'title' => $this->input->post('title'),
                 'description' => $this->input->post('description'),
                 'image_name' => 'no-image.jpg'
@@ -46,7 +48,7 @@ class Tindahan extends MY_Controller
             if($result)
             {
                 $this->session->set_flashdata('status', "Added Tindahan Sucessfully!");
-                $result = $this->TindahanModel->get_tindahan($this->session->userdata('login_data')['username']);
+                $result = $this->TindahanModel->get_tindahan($this->session->userdata('login_data')['user_id']);
                 $this->session->set_userdata('tindahan_data', $result);
                 redirect(site_url('your-tindahan'));
             }

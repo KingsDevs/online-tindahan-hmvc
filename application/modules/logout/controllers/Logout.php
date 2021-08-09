@@ -11,6 +11,7 @@ class Logout extends MY_Controller
     public function logout_user()
     {
         $this->session->unset_userdata('login_data');
+        $this->session->unset_userdata('tindahan_data');
         $this->session->set_flashdata('status_reg', 'You have logged out!');
         redirect(site_url('login'));
     }

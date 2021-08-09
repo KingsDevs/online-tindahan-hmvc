@@ -3,18 +3,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class TindahanModel extends CI_Model
 {
-    public function insert_tindahan($data)
+    private $tindahan_db;
+    public function __construct()
     {
-        return $this->db->insert('tindahans', $data);
+        parent::__construct();
+        $this->tindahan_db =  $this->load->database('tindahan', TRUE);
+        $this->load->library('encrypt');
     }
 
-    public function get_tindahan($owner)
+    public function insert_tindahan($data)
     {
-        $this->db->select('*');
-        $this->db->from('tindahans');
-        $this->db->where('owner' , $owner);
+        $data['title'] = $this->encrypt->encode($data['title']);
+        $data['description'] = $this->encrypt->encode($data['description']);
+        return $this->tindahan_db->insert('tindahans', $data);
+    }
 
-        $query = $this->db->get();
+    public function get_tindahan($user_id)
+    {
+        $this->tindahan_db->select('*');
+        $this->tindahan_db->from('tindahans');
+        $this->tindahan_db->where('user_id' , $user_id);
+
+        $query = $this->tindahan_db->get();
+        $data = $query->result();
+        foreach($data as $col)
+        {
+            $col->title  = $this->encrypt->decode($col->title);
+            $col->description  = $this->encrypt->decode($col->description);
+        }
+
         return $query->result();
     }
 
