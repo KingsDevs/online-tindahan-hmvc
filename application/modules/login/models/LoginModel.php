@@ -47,6 +47,18 @@ class LoginModel extends CI_Model
             return FALSE;
         }
     }
+
+    public function check_username($username)
+    {
+        $this->user_db->select('*');
+        $this->user_db->from('users');
+        $this->user_db->where('username' , $username);
+
+        $query = $this->user_db->get();
+        
+        return $query->num_rows() > 0;
+        
+    }
 }
 
 ?>

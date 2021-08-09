@@ -14,7 +14,7 @@ class MY_Controller extends MX_Controller
 
         $this->load->module('templates');
         $this->load->library(array('form_validation','session', 'encryption'));
-        $this->load->helper('form');
+        $this->load->helper(array('form', 'security'));
 
         //$key =  $this->encryption->create_key(16);
     }
