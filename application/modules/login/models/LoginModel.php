@@ -55,8 +55,8 @@ class LoginModel extends CI_Model
         $this->user_db->where('username' , $username);
 
         $query = $this->user_db->get();
-        
-        return $query->num_rows() > 0;
+
+        return $query->num_rows();
         
     }
 }

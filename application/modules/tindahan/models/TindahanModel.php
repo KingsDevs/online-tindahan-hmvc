@@ -35,4 +35,18 @@ class TindahanModel extends CI_Model
         return $query->result();
     }
 
+    public function check_title($title, $user_id)
+    {
+        $this->tindahan_db->select('*');
+        $this->tindahan_db->from('tindahans');
+        $this->tindahan_db->where('user_id' , $user_id);
+        $this->tindahan_db->where('title' , $title);
+
+        $query = $this->tindahan_db->get();
+
+        
+        return $query->num_rows();
+
+    }
+
 }

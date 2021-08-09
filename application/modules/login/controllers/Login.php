@@ -70,8 +70,7 @@ class Login extends MY_Controller
     {
         $this->form_validation->set_rules('firstname', 'First Name', 'trim|required');
         $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required');
-        $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]|alpha_numeric|callback_check_username',
-        array('check_username'=>'Username is already taken'));
+        $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]|alpha_numeric|callback_check_username');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
         $this->form_validation->set_rules('c_password', 'Confirm Password', 'trim|required|min_length[8]|matches[password]', array('matches'=>'Passwords do not match'));
 
@@ -102,31 +101,34 @@ class Login extends MY_Controller
         }
     }
 
-    public function check_username($username)
+    public function check_username($str)
     {
-        $num_rows = $this->LoginModel->check_username($username);
-        if($num_rows > 0)
+        $rows = $this->LoginModel->check_username($str);
+        if($rows > 0)
         {
-            $this->form_validation->set_message('check_username', 'Username is already taken');
             return FALSE;
         }
-
-        return TRUE;
+        else
+        {
+            return TRUE;
+        }
 
     }
 
-    public function username_check($str)
+    public function test()
+    {
+
+        $rows = $this->LoginModel->check_username('karlmsvxD');
+        if($rows > 0)
         {
-                if ($str == 'test')
-                {
-                        $this->form_validation->set_message('username_check', 'The {field} field can not be the word "test"');
-                        return FALSE;
-                }
-                else
-                {
-                        return TRUE;
-                }
+            echo 'not unique';
         }
+        else
+        {
+            echo 'unique';
+        }
+
+    }
   
 
 

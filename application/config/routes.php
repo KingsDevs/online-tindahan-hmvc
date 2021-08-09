@@ -62,6 +62,7 @@ $route['logout']['GET'] = 'logout/logout_user';
 
 $route['register']['GET'] = 'login/register_page';
 $route['register']['POST'] = 'login/register';
+$route['test']['GET'] = 'login/test';
 
 $route['home']['GET'] = 'homepage/home_page';
 

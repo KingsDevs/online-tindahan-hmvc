@@ -58,6 +58,12 @@ class Tindahan extends MY_Controller
             }
         }
     }
+
+
+    public function check_title($title)
+    {
+       $rows =  $this->TindahanModel->check_title($title, $this->session->userdata('login_data')['user_id']);
+    }
 }
 
 ?>
