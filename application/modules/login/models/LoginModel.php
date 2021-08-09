@@ -13,7 +13,6 @@ class LoginModel extends CI_Model
 
     public function insert_user($data)
     {
-        //$data['username'] = $this->encrypt->encode($data['username']);
         $data['firstname'] = $this->encrypt->encode($data['firstname']);
         $data['lastname'] = $this->encrypt->encode($data['lastname']);
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
