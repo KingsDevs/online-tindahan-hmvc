@@ -7,11 +7,15 @@ class LoginModel extends CI_Model
     public function __construct()
     {
         parent::__construct();
-        $this->user_db = $this->load->database('online_tindahan_users', TRUE);
+        $this->user_db = $this->load->database('users', TRUE);
+        $this->load->library('encrypt');
     }
 
     public function insert_user($data)
     {
+        //$data['username'] = $this->encrypt->encode($data['username']);
+        $data['firstname'] = $this->encrypt->encode($data['firstname']);
+        $data['lastname'] = $this->encrypt->encode($data['lastname']);
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
         
         return $this->user_db->insert('users', $data);

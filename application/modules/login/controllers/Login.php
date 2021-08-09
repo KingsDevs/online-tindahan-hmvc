@@ -79,9 +79,9 @@ class Login extends MY_Controller
         else
         {
             $data = array(
+                'username' => $this->input->post('username'),
                 'firstname' => $this->input->post('firstname'),
                 'lastname' => $this->input->post('lastname'),
-                'username' => $this->input->post('username'),
                 'password' => $this->input->post('password'),
             );
             
