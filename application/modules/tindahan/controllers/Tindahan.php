@@ -11,8 +11,7 @@ class Tindahan extends MY_Controller
 
     public function your_tindahan_page()
     {
-        
-        if($this->session->has_userdata('tindahan_data'))
+        if($this->session->has_userdata('tindahan_data') == '')
         {
             $result = $this->TindahanModel->get_tindahan($this->session->userdata('login_data')['user_id']);
             $this->session->set_userdata('tindahan_data', $result);

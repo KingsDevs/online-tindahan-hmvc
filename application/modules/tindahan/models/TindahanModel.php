@@ -31,7 +31,7 @@ class TindahanModel extends CI_Model
             $col->title  = $this->encrypt->decode($col->title);
             $col->description  = $this->encrypt->decode($col->description);
         }
-
+        
         return $query->result();
     }
 
