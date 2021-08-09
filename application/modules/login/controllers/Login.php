@@ -37,7 +37,7 @@ class Login extends MY_Controller
             );
 
             $result = $this->LoginModel->login_user($data);
-           
+            print_r($result);
             if($result === FALSE)
             {
                 $this->session->set_flashdata('status_login', 'Wrong Username or Password');
@@ -46,9 +46,11 @@ class Login extends MY_Controller
             else
             {
                 $login_data = array(
+                    'user_id' => $result->user_id,
+                    'username' => $result->username,
                     'firstname' => $result->firstname,
                     'lastname' => $result->lastname,
-                    'username' => $result->username,
+                    'created_at' => $result->created_at,
                 );
 
                 $this->session->set_userdata('login_data', $login_data);

@@ -32,7 +32,10 @@ class LoginModel extends CI_Model
         {
             if(password_verify($data['password'], $query->row()->password))
             {
-                return $query->row();
+                $data = $query->row();
+                $data->firstname = $this->encrypt->decode($data->firstname);
+                $data->lastname = $this->encrypt->decode($data->lastname);
+                return $data;
             }
             else
             {
