@@ -73,7 +73,7 @@ class Login extends MY_Controller
         $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]|alpha_numeric|callback_check_username',
         array('check_username'=>'Username is already taken'));
         $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
-        $this->form_validation->set_rules('c_password', 'Confirm Password', 'trim|required|min_length[8]|matches[password]');
+        $this->form_validation->set_rules('c_password', 'Confirm Password', 'trim|required|min_length[8]|matches[password]', array('matches'=>'Passwords do not match'));
 
         if ($this->form_validation->run() == FALSE)
         {
