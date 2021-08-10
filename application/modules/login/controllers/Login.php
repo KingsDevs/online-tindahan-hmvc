@@ -70,7 +70,7 @@ class Login extends MY_Controller
     {
         $this->form_validation->set_rules('firstname', 'First Name', 'trim|required');
         $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required');
-        $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]|alpha_numeric|callback_check_username');
+        $this->form_validation->set_rules('username', 'Username', array('trim','required','min_length[3]','alpha_numeric',array('check_username', array($this->LoginModel, 'check_username'))));
         $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
         $this->form_validation->set_rules('c_password', 'Confirm Password', 'trim|required|min_length[8]|matches[password]', array('matches'=>'Passwords do not match'));
 
@@ -101,19 +101,7 @@ class Login extends MY_Controller
         }
     }
 
-    public function check_username($str)
-    {
-        $rows = $this->LoginModel->check_username($str);
-        if($rows > 0)
-        {
-            return FALSE;
-        }
-        else
-        {
-            return TRUE;
-        }
-
-    }
+    
 
     public function test()
     {

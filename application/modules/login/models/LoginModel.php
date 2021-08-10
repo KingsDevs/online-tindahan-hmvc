@@ -50,13 +50,19 @@ class LoginModel extends CI_Model
 
     public function check_username($username)
     {
-        $this->user_db->select('*');
+        $this->user_db->select('username');
         $this->user_db->from('users');
         $this->user_db->where('username' , $username);
 
         $query = $this->user_db->get();
 
-        return $query->num_rows();
+        $rows = $query->num_rows();
+        if($rows === 0)
+        {
+            return TRUE;
+        }
+        
+        return FALSE;
         
     }
 }

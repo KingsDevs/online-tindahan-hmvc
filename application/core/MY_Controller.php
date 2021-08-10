@@ -19,4 +19,16 @@ class MY_Controller extends MX_Controller
         //$key =  $this->encryption->create_key(16);
     }
 
+    // protected function check_username($str)
+	// {
+    //     $this->load->model('login/LoginModel');
+	// 	$rows = $this->LoginModel->check_username($str);
+    //     if($rows === 0)
+    //     {
+    //         return TRUE;
+    //     }
+
+    //     return FALSE;
+	// }
+
 }
