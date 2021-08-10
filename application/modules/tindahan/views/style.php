@@ -16,7 +16,7 @@
 
     .tindahan-list
     {
-        max-width: 57em;
+        max-width: 63em;
         margin: auto;
     }
 

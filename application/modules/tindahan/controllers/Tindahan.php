@@ -27,7 +27,11 @@ class Tindahan extends MY_Controller
     }
     public function add_tindahan()
     {
-        $this->form_validation->set_rules('title', 'Title', 'trim|required|alpha_numeric_spaces');
+        $this->form_validation->set_rules('title', 'Title', array('trim','required','alpha_numeric_spaces', 
+        array('check_title', function($str)
+                            {
+                                return $this->TindahanModel->check_title($str, $this->session->userdata('login_data')['user_id']);
+                            })));
         $this->form_validation->set_rules('description', 'Description', 'trim|required');
         
         if ($this->form_validation->run() == FALSE)
@@ -59,11 +63,6 @@ class Tindahan extends MY_Controller
         }
     }
 
-
-    public function check_title($title)
-    {
-       $rows =  $this->TindahanModel->check_title($title, $this->session->userdata('login_data')['user_id']);
-    }
 }
 
 ?>

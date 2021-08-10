@@ -69,3 +69,4 @@ $lang['form_validation_error_message_not_set']	= 'Unable to access an error mess
 $lang['form_validation_in_list']		= 'The {field} field must be one of: {param}.';
 
 $lang['form_validation_check_username'] = 'This username is already taken!';
+$lang['form_validation_check_title'] = 'This title is already taken!';

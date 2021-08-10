@@ -8,7 +8,7 @@ class TindahanModel extends CI_Model
     {
         parent::__construct();
         $this->tindahan_db =  $this->load->database('tindahan', TRUE);
-        $this->load->library('encrypt');
+        $this->load->library(array('encrypt'));
     }
 
     public function insert_tindahan($data)
@@ -37,15 +37,20 @@ class TindahanModel extends CI_Model
 
     public function check_title($title, $user_id)
     {
-        $this->tindahan_db->select('*');
+        $this->tindahan_db->select('user_id, title');
         $this->tindahan_db->from('tindahans');
         $this->tindahan_db->where('user_id' , $user_id);
         $this->tindahan_db->where('title' , $title);
 
         $query = $this->tindahan_db->get();
-
         
-        return $query->num_rows();
+        $rows = $query->num_rows();
+
+        if($rows === 0)
+        {
+            return TRUE;
+        }
+        return FALSE;
 
     }
 

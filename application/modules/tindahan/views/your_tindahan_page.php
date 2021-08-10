@@ -10,18 +10,11 @@
     <br>
 
     <div class="row">
-        <div class="col">
-        <a href="<?php echo site_url('your-tindahan/add-tindahan');?>" class="btn btn-primary float-end">Add Tindahan</a>
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row">
         <div class="card text-center">
             
             <div class="card-header">
                 Your Tindahan List
+                <a href="<?php echo site_url('your-tindahan/add-tindahan');?>" class="btn btn-primary float-end">Add Tindahan</a>
             </div>
             <div class="scroll-list">
                 <?php if($this->session->has_userdata('tindahan_data')) : ?>
