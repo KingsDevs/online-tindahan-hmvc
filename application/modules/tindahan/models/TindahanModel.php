@@ -44,7 +44,12 @@ class TindahanModel extends CI_Model
 
         $query = $this->tindahan_db->get();
 
-        return $query->row();
+        $data = $query->row();
+
+        $data->title = $this->encrypt->decode($data->title);
+        $data->description = $this->encrypt->decode($data->description);
+
+        return $data;
 
     }
 
