@@ -35,6 +35,19 @@ class TindahanModel extends CI_Model
         return $query->result();
     }
 
+    public function get_current_tindahan($id)
+    {
+        $this->tindahan_db->select('*');
+        $this->tindahan_db->from('tindahans');
+        $this->tindahan_db->where('tindahan_id' , $id);
+        $this->tindahan_db->limit(1);
+
+        $query = $this->tindahan_db->get();
+
+        return $query->row();
+
+    }
+
     public function check_title($title, $user_id)
     {
         $this->tindahan_db->select('user_id, title');
@@ -54,4 +67,5 @@ class TindahanModel extends CI_Model
 
     }
 
+    
 }

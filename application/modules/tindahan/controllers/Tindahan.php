@@ -63,6 +63,12 @@ class Tindahan extends MY_Controller
         }
     }
 
+    public function edit_tindahan_get($id)
+    {
+        $data = $this->TindahanModel->get_current_tindahan($id);
+        $this->templates->show('Edit Tindahan', 'tindahan/edit_tindahan', $data);
+    }
+
 }
 
 ?>

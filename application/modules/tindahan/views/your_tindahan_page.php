@@ -32,7 +32,7 @@
                                 <h5 class="card-title"><?php echo $td->title; ?></h5>
                                 <p class="card-text"><?php echo $td->description; ?></p>
                                 
-                                <a href="#" class="btn btn-primary visit-btn">Visit this Tindahan</a>
+                                <a href="<?php echo site_url('your-tindahan/edit/'.$td->tindahan_id) ?>" class="btn btn-primary visit-btn">Visit this Tindahan</a>
                             </div>
                             </div>
                         </div>

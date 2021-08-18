@@ -7,10 +7,11 @@ class Templates extends MY_Controller
         parent::__construct();
     }
 
-    public function show($title ,$content = "")
+    public function show($title ,$content, $val="")
     {
         $data['content'] = $content;
         $data['title'] = $title;
+        $data['data'] = $val;
         $this->load->view('templates/template_view', $data);
     }
 }
